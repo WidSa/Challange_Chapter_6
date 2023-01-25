@@ -1,0 +1,254 @@
+.navbar {
+    position: relative;
+    z-index: 1;
+}
+
+.nav-link {
+    margin-left: 30px;
+    color: white;
+}
+
+
+.Main-Screen{
+    background-image: url(assets/main-bg.jpg);
+    background-size: cover;
+    position: relative;
+    height: 720px;
+    text-align: center;
+    justify-content: center;
+    align-content: flex-end;
+    margin-top: -60px;
+    background-position: center;
+    flex-wrap: wrap;
+    color: whitesmoke;
+}
+
+.Main-Screen::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 60%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0));
+	position: absolute;
+	bottom: 0;
+}
+
+.Main-Screen .container-screen {
+    text-shadow: 1px 1px 1px gray;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    flex-direction: column;
+    height: 540px;
+    position: relative;
+    z-index: 1;
+}
+
+.container-screen h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.container-screen p {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.container-screen a {
+    font-weight: 500;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.story-svg p {
+   margin: 0;
+   font-size: small;
+}
+
+.Game-Choice {
+    height: 800px;
+    background-image: url(assets/the-games-bg.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.Game-Choice .container-Game-Choice {
+    color: white;
+    position: absolute;
+    top: 30%;
+    right: 5%;
+}
+
+.container-Game-Choice .display-game-content{
+    font-weight: 200;
+    text-shadow: 2px 2px 7px rgba(253, 251, 251, 0.7);
+}
+
+.display-game-content span {
+    font-weight: 500;
+    font-size: xx-large;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.carousel-indicators .indicator {
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+}
+
+.carousel-control-prev {
+    left: -70px;
+    
+}
+
+.carousel-control-prev-icon {
+    background-image: none !important;
+}
+
+.carousel-control-next-icon {
+    background-image: none !important;
+}
+
+.carousel-control-next {
+    right: -70px;
+}
+
+.game-feature {
+    background-image: url(assets/features.jpg);
+    background-size: cover;
+    height: 770px;
+    color: white;
+    position: relative;
+}
+
+.container-feature {
+    position: absolute;
+    top: 25%;
+    right: 25%;
+}
+
+.feature-list {
+    margin-top: 35px;
+}
+
+.content-list h4,
+.container-requirement h4 {
+    color: orange;
+}
+
+.list-feature {
+    list-style-image: url(assets/ellipse-outline.svg);
+    margin-top: 45px;
+}
+
+.list-feature-active p {
+    font-size: 14px;
+}
+
+.list-feature-active {
+    list-style-image: url(assets/ellipse.svg);
+} 
+
+.system-requirement {
+    background-image: url(assets/requirements.png);
+    background-size: cover;
+    height: 770px;
+    color: white;
+    position: relative;
+}
+
+.system-requirement::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 80%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1),rgba(0, 0, 0, 0.3));
+}
+
+.container-requirement {
+    position: absolute;
+    left: 7%;
+    top: 25%;
+}
+
+.title-req {
+    margin-bottom: 80px;
+}
+
+.highline {
+    position: absolute;
+    left: 40%;
+    top: 15%;
+}
+
+.content-requirment {
+    border: 1px dotted bisque;
+}
+
+.Top-Scores {
+    background-image: url(assets/top-score-bg.png);
+    background-size: cover;
+    height: 770px;
+    color: white;
+    position: relative;
+}
+
+.container-top-score {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+
+.colum-left {
+   align-self: center;
+}
+
+.card {
+    background: #FFFFFF14;
+    box-sizing: border-box;
+}
+
+.rounded-circle {
+    margin-top: 10px;
+    margin-left: 15px;
+    width: 63px;
+    height: 63px;
+}
+
+.Newsletter {
+    background-image: url(assets/newsletter.png);
+    background-size: cover;
+    height: 950px;
+    color: white;
+    position: relative;
+}
+
+.container-newsletter {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+}
+
+.container-newsletter .row {
+    --bs-gutter-x: -0.5rem;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+}
+
+.footer-nav {
+    border-bottom: 2px solid white;
+}
+
+.copy-policy {
+    display: flex;
+    justify-content: space-between;
+}

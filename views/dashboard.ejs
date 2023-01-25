@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="text-center">Dashboard</h1>
+    <table class="table table-secondary">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">USERNAME</th>
+          <th scope="col">PASSWORD</th>
+          <th scope="col">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insert">
+              Add User
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Data.forEach(i => { %>
+          <tr>
+            <th scope="row"><%= i.id %> </th>
+            <td><%= i.userName %> </td>
+            <td><%= i.password %> </td>
+            <td>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update">
+                Update User
+              </button>
+              <button type="button" class="btn btn-primary" onclick="handleDelete()">
+                Deleted User
+              </button>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="insert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">USERNAME</label>
+            <input type="text" class="form-control" id="InsertuserName">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">PASSWORD</label>
+            <input type="password" class="form-control" id="Insertpassword">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="handleInsert()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">USERNAME</label>
+            <input type="text" class="form-control" id="UpdateuserName">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">PASSWORD</label>
+            <input type="password" class="form-control" id="Updatepassword">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="handleUpdate()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<script>
+  const handleInsert = async () => {
+    const inputUserName = document.getElementById("InsertuserName")
+    const inputPassword = document.getElementById("Insertpassword")
+    console.log(inputUserName)
+    concole.log(inputPassword)
+
+    const resp = await fetch('http://localhost:4001/userGame', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userName: inputUserName.value,
+        password: inputPassword.value
+      })
+    })
+  
+    location.reload()
+  }
+
+const handleUpdate = async () => {
+    const inputUserName = document.getElementById("Updateusername")
+    const inputPassword = document.getElementById("Updatepassword")
+    console.log(inputUserName)
+    console.log(inputPassword)
+
+    const resp = await fetch(`http://localhost:4001/userGame/${i.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userName: inputUserName.value,
+        password: inputPassword.value
+      })
+    })
+  
+    location.reload()
+  }
+  const handleDelete = async () => {
+    alert('Are you sure?')
+    
+    const resp = await fetch(`http://localhost:4001/userGame/${i.id}`, {
+      method: 'DELETE',
+    })
+    location.reload()
+  }
+</script>
+</body>
+</html>
