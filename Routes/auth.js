@@ -26,11 +26,15 @@ router.get("/login", (req, res) => {
 router.post("/login", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-
+    
     users.find((i) => {
         if(i.email === email && i.password === password){
             res.redirect("/Dashboard")
         } else {console.log('error')}
+        console.log(i.email)
+        console.log(email)
+        console.log(i.password)
+        console.log(password)
     })
 })
 

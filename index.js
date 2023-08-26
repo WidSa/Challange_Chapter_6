@@ -7,7 +7,6 @@ const models = require('./models');
 app.use(express.json());
 app.use(express.static('Challange'));
 app.use(express.static('ChallengeChapter4'));
-app.use(express.static('Public'))
 
 app.set('view engine', 'ejs');
 
